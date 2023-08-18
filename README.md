@@ -1,1 +1,3 @@
-# countdown_project
+# Countdown Project
+
+A countdown project
