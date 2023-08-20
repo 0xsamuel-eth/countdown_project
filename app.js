@@ -25,6 +25,7 @@ const weekdays = [
 const giveaway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
+// console.log(items);
 
 let tempDate = new Date();
 let tempYear = tempDate.getFullYear();
