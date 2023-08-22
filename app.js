@@ -70,8 +70,15 @@ function getRemainingTime() {
   let days = t / oneDay;
   days = Math.floor(days);
   let hours = Math.floor((t % oneDay) / oneHour);
-  let minutes = Math.floor((t % hours) / oneMinute);
+  let minutes = Math.floor((t % oneHour) / oneMinute);
+  let seconds = Math.floor((t % oneMinute) / 1000);
 
+  // set values array;
+  const  values = [days,hours,minutes,seconds];
+
+  items.forEach(function (item,index) {
+    item.innerHTML = values[index];
+  });
 }
 
 getRemainingTime();
