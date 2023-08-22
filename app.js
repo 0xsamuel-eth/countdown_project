@@ -1,4 +1,4 @@
-const { clearInterval } = require("timers");
+// const { clearInterval } = require("timers");
 
 const months = [
   "January",
@@ -27,18 +27,16 @@ const weekdays = [
 const giveaway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
-// console.log(items);
 
-// let tempDate = new Date();
-// let tempYear = tempDate.getFullYear();
-// let tempMonth = tempDate.getMonth();
-// let tempDay = tempDate.getDate();
+let tempDate = new Date();
+let tempYear = tempDate.getFullYear();
+let tempMonth = tempDate.getMonth();
+let tempDay = tempDate.getDate();
 
 // // months are ZERO index based;
-// const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
+const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
 
-let futureDate = new Date(2023, 8, 3, 11, 30, 0);
-// console.log(futureDate);
+// let futureDate = new Date(2023, 8, 3, 11, 30, 0);
 
 const year = futureDate.getFullYear();
 const hours = futureDate.getHours();
@@ -50,7 +48,6 @@ const date = futureDate.getDate();
 const weekday = weekdays[futureDate.getDay()];
 
 giveaway.textContent = `giveaway ends on ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}am`;
-
 // future time in ms
 const futureTime = futureDate.getTime();
 // console.log(futureTime);
@@ -64,9 +61,9 @@ function getRemainingTime() {
   // 1 d = 24 hr
 
   // values in ms
-  const oneDay = 24*60*60*1000;
-  const oneHour = 60*60*1000;
-  const oneMinute = 60*1000;
+  const oneDay = 24 * 60 * 60 * 1000;
+  const oneHour = 60 * 60 * 1000;
+  const oneMinute = 60 * 1000;
   // calculate all values
   let days = t / oneDay;
   days = Math.floor(days);
@@ -94,4 +91,5 @@ function getRemainingTime() {
 }
 // countdown
 let countdown = setInterval(getRemainingTime, 1000);
+// set initial values
 getRemainingTime();
