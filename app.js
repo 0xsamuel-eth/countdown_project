@@ -56,6 +56,7 @@ console.log(futureTime);
 function getRemainingTime() {
   const today = new Date().getTime();
   const t = futureTime - today; 
+  console.log(t);
   // 1s = 1000ms
   // 1m = 60s
   // 1hr = 60m
@@ -66,7 +67,11 @@ function getRemainingTime() {
   const oneHour = 60*60*1000;
   const oneMinute = 60*1000;
   // calculate all values
-  let days = t/oneDay;
+  let days = t / oneDay;
+  days = Math.floor(days);
+  let hours = Math.floor((t % oneDay) / oneHour);
+  let minutes = Math.floor((t % hours) / oneMinute);
+
 }
 
 getRemainingTime();
