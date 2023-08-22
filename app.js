@@ -1,3 +1,5 @@
+const { clearInterval } = require("timers");
+
 const months = [
   "January",
   "February",
@@ -85,6 +87,10 @@ function getRemainingTime() {
   items.forEach(function (item,index) {
     item.innerHTML = format(values[index]);
   });
+  if(t < 0) {
+    clearInterval(countdown);
+    deadline.innerHTML = `<h4 class="expired">sorry, this giveaway has expired!</h4>`;
+  }
 }
 // countdown
 let countdown = setInterval(getRemainingTime, 1000);
